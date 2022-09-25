@@ -26,4 +26,9 @@ public class President {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

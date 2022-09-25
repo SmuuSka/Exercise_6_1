@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA = "President";
     private ListView listView;
     private Presidents presidents = Presidents.getInstance();
-    private ArrayList<String> presidentName = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,13 +36,8 @@ public class MainActivity extends AppCompatActivity {
         presidents.getPresidentsList().add(new President("Halonen, Tarja Kaarina", 2000, 2012, "Eka naispressa"));
         presidents.getPresidentsList().add(new President("Niinistö, Sauli Väinämö", 2012, 2024, "Owner of Lennu, the First Dog"));
 
-        for (President p : presidents.getPresidentsList()) {
-            presidentName.add(p.getName());
-
-        }
-
         listView = findViewById(R.id.presidentsListView);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_president_details, R.id.presidentTextView, presidentName);
+        ArrayAdapter<President> arrayAdapter = new ArrayAdapter<>(this, R.layout.customlayout, R.id.presidentTextView, presidents.getPresidentsList());
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

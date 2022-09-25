@@ -16,6 +16,7 @@ public class PresidentDetailsActivity extends AppCompatActivity {
         int i = b.getInt(MainActivity.EXTRA, 0);
 
         TextView presidentProfile = findViewById(R.id.presidentTextView);
+
         presidentProfile.setText(Presidents.getInstance().getPresident(i).getName() + "\n" +
                     Presidents.getInstance().getPresident(i).getStart() + " " +
                     Presidents.getInstance().getPresident(i).getStop() + "\n" +
